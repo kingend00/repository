@@ -13,4 +13,3 @@ jobs:
             - run: echo "before run npm ci"
             - run: npm ci
             - run: npm test
-            - run: npm run build
