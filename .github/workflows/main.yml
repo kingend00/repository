@@ -10,6 +10,7 @@ jobs:
             - uses: actions/setup-node@v1
               with:
                 node-version: 8
+            - run: echo "before run npm ci"
             - run: npm ci
             - run: npm test
             - run: npm run build
