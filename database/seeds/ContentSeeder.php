@@ -27,11 +27,12 @@ class ContentSeeder extends Seeder
         $limit = 10;
         Schema::disableForeignKeyConstraints();
         // DB::table('content')->truncate();
+        $faker = \Faker\Factory::create();
 
         for ($i = 0; $i < $limit; $i++) {
             DB::table('content')->insert([
                 'title' => $faker->title,
-                'content' => $this->generateRandomString(),
+                'content' => $faker->paragraph,
                 'rate' => 10,
                 'rate_count' => 8,
                 'category_id' => $i,
