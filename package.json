@@ -24,6 +24,9 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "editor.md": "^1.5.0",
+        "inscrybmde": "^1.11.6",
+        "simplemde": "^1.11.2",
         "vue-axios": "^2.1.5",
         "vue-route": "^1.5.1",
         "vue-router": "^3.1.5"

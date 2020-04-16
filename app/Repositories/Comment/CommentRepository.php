@@ -42,16 +42,5 @@ interface IDatabase
 
 function Checkout($orderId, $userId)
 {
-    // Nếu muốn thay đổi database, ta chỉ cần thay dòng code dưới
-    // Các Module XMLDatabase, SQLDatabase phải implement IDatabase
-    //IDatabase $db = new XMLDatabase(); 
-    //IDatebase $db = new SQLDatabase();
-    IDatabase $db = new Database();
-    $db.Save($orderId);
- 
-    ILogger $log = new Logger();
-    $log.LogInfo("Order has been checkout");
- 
-    IEmailSender $es = new EmailSender();
-    $es.SendEmail($userId);
+
 }

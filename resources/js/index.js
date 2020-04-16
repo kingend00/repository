@@ -16,5 +16,6 @@ export const routes = [
 			]
 		}
 	] },
+	{ path: '*', name: 'NotFound', component: ExampleComponent },
 	
 ];

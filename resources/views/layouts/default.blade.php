@@ -8,81 +8,133 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/inscrybmde@1.11.6/dist/inscrybmde.min.css">
+
         <link rel="stylesheet" href="{{asset('css/default.css')}}">
         <link rel="stylesheet" href="{{asset('css/fonts.css')}}">
+        <style>
+            body{
+                background-color: white;
+            }
+            .full-height{
+              width:76%;
+              height: auto;
+              float: left;
+              background-color: white;
+            }
+            #sidebar-global{
+                float: left;
+                width: 20%;
+                margin-right:2%;
+                margin-left:2%;
+                margin-top:2%;
+            }
+            #sidebar-global a {
+                text-decoration: none;
+            }
+            #sidebar-global ul {
+                list-style-type: none;
+            }
+            #sidebar-global ul li {
+                margin-top:10px;
+                margin-bottom:10px;
+                font-size:18px;
+            }
+            #sidebar-global ul li a:hover {
+                color: #16a085;
+            }
+            #app{
+                height: 100%;
+            }
+            #wrapper{
+                height: 100%;
+            }
+            #page{
+                height: 100%;
+            }
+            #copyright{
+                width: 100%;
+                padding:0;
+                height: auto;
+                background-color: gray;
+            }
+            #copyright p {
+                margin-bottom: 1%;
+                margin-top: 1%;
+            }
+        </style>
         <!-- Styles -->
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+        <div id="app">
+            <div class="flex-center position-ref full-height">
+                <div>
+                    <router-view></router-view>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div id="app">
-                  <router-view></router-view>             
-
-                <!-- Footer -->
-                <div id="footer-wrapper">
-                    <div id="footer" class="container">
-                        <div id="box1">
-                            <div class="title">
-                                <h2>Latest Post</h2>
+                    <!-- Footer -->
+                    {{-- <div id="footer-wrapper">
+                        <div id="footer" class="container">
+                            <div id="box1">
+                                <div class="title">
+                                    <h2>Latest Post</h2>
+                                </div>
+                                <div>
+                                    <textarea id="mark-down"></textarea>
+                                </div>
                             </div>
-                            <ul class="style1">
-                                <li><a href="#">Semper mod quis eget mi dolore</a></li>
-                                <li><a href="#">Quam turpis feugiat sit dolor</a></li>
-                                <li><a href="#">Amet ornare in hendrerit in lectus</a></li>
-                                <li><a href="#">Consequat etiam lorem phasellus</a></li>
-                                <li><a href="#">Amet turpis, feugiat et sit amet</a></li>
-                                <li><a href="#">Semper mod quisturpis nisi</a></li>
-                            </ul>
-                        </div>
-                        <div id="box2">
-                            <div class="title">
-                                <h2>Popular Links</h2>
+                            <div id="box3">
+                                <div class="title">
+                                    <h2>Follow Us</h2>
+                                </div>
+                                <p>Proin eu wisi suscipit nulla suscipit interdum. Aenean lectus lorem, imperdiet magna.</p>
+                                <ul class="contact">
+                                    <li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
+                                    <li><a href="#" class="icon icon-facebook"><span>Facebook</span></a></li>
+                                    <li><a href="#" class="icon icon-dribbble"><span>Dribbble</span></a></li>
+                                    <li><a href="#" class="icon icon-tumblr"><span>Tumblr</span></a></li>
+                                    <li><a href="#" class="icon icon-rss"><span>Pinterest</span></a></li>
+                                </ul>
+                                    <a href="#" class="button">Read More</a> </div>
                             </div>
-                            <ul class="style1">
-                                <li><a href="#">Semper mod quis eget mi dolore</a></li>
-                                <li><a href="#">Quam turpis feugiat sit dolor</a></li>
-                                <li><a href="#">Amet ornare in hendrerit in lectus</a></li>
-                                <li><a href="#">Consequat etiam lorem phasellus</a></li>
-                                <li><a href="#">Amet turpis, feugiat et sit amet</a></li>
-                                <li><a href="#">Semper mod quisturpis nisi</a></li>
-                            </ul>
-                        </div>
-                        <div id="box3">
-                            <div class="title">
-                                <h2>Follow Us</h2>
-                            </div>
-                            <p>Proin eu wisi suscipit nulla suscipit interdum. Aenean lectus lorem, imperdiet magna.</p>
-                            <ul class="contact">
-                                <li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
-                                <li><a href="#" class="icon icon-facebook"><span>Facebook</span></a></li>
-                                <li><a href="#" class="icon icon-dribbble"><span>Dribbble</span></a></li>
-                                <li><a href="#" class="icon icon-tumblr"><span>Tumblr</span></a></li>
-                                <li><a href="#" class="icon icon-rss"><span>Pinterest</span></a></li>
-                            </ul>
-                                <a href="#" class="button">Read More</a> </div>
-                        </div>
+                        </div> --}}
+                        {{-- <example-component></example-component> --}}
                     </div>
-                    {{-- <example-component></example-component> --}}
                 </div>
-                <div id="copyright" class="container">
-                    <p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+                <div id="sidebar-global">                    
+                    <ul>
+                        <li><a href="index.html">Login</a></li>
+                        <li><a href="css.html">About RogTeam</a></li>
+                        <li><a href="reveal.html">Contact</a></li>
+                        <category-group></category-group>
+                    </ul>            
                 </div>
-               
-            </div>
+                <div id="copyright">
+                    <p>&copy; Untitled. All rights reserved. | Photos by <a href="http://hoangx.com/">Hoangx</a> | Design by <a href="http://templated.co" rel="nofollow">ROGTEAM</a>.</p>
+                </div>
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/inscrybmde@1.11.6/dist/inscrybmde.min.js"></script>
+        <script>
+            var inscrybmde = new InscrybMDE({ element: document.getElementById("mark-down") });
+        </script>
+        <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
+
+        <script type="text/javascript">
+            $(function() {
+                var offset = $("#sidebar-global").offset();
+                var topPadding = 80;
+                $(window).scroll(function() {
+                    if ($(window).scrollTop() > offset.top) {
+                        $("#sidebar-global").stop().animate({
+                            marginTop: $(window).scrollTop() - offset.top + topPadding
+                        });
+                    } else {
+                        $("#sidebar-global").stop().animate({
+                            marginTop: '2%'
+                        });
+                    };
+                });
+            });
+        </script>
     </body>
 </html>

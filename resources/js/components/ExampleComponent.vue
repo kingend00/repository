@@ -1,17 +1,6 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
-
-                    <div class="card-body">
-                        I'm an example component.
-                        <router-link to="/test"><a>url to Test</a></router-link>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <h1>404 NOT FOUND</h1>
     </div>
 </template>
 
@@ -22,3 +11,15 @@
         }
     }
 </script>
+<style scoped>
+    .container {
+        width: 100%;
+        height: 900px;
+    }
+    h1 {
+        text-align: center;
+        line-height:500px;
+        font-size:40px;
+    }
+
+</style>
