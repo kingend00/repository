@@ -23,6 +23,14 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+let Authorization_token = $cookies.get('token');
+
+if (Authorization_token) {
+    window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + Authorization_token;
+} else {
+    console.error('401 (Unauthorized) token not found');
+}
+
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

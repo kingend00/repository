@@ -13,6 +13,7 @@ class UserController extends Controller
     public function __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
+        $this->middleware('auth:api', ['except' => ['login']]);
     }
     /**
      * Display a listing of the resource.
@@ -23,7 +24,16 @@ class UserController extends Controller
     {
         return $this->userRepository->all();
     }
+    public function login(Request $request){
+        return $this->userRepository->login($request);
+    }
+    public function refresh() {
+        return $this->userRepository->refresh();
+    }
 
+    public function user() {
+        return $this->userRepository->user();
+    }
     /**
      * Show the form for creating a new resource.
      *

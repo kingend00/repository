@@ -4,6 +4,8 @@ namespace App\Repositories;
 
 use App\Repositories\RepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+
 
 class BaseRepository implements RepositoryInterface 
 {
@@ -32,5 +34,11 @@ class BaseRepository implements RepositoryInterface
     }
     public function show() {
         return 1;
+    }
+    public function store(Request $request){
+        return $this->model->create($request);
+    }
+    public function create(){
+        return "this is function create";
     }
 }

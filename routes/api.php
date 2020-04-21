@@ -23,6 +23,12 @@ Route::group(['prefix'=>'category'],function(){
     Route::get('/show_details/{$id}','Controller\CategoryController@showDetails');
 });
 
+Route::group(['prefix' => 'user'],function(){
+    Route::post('/login','Controller\UserController@login');
+    Route::get('/refresh', 'Controller\UserController@refresh')->middleware('jwt.refresh');
+    Route::get('/data', 'Controller\UserController@user')->middleware('jwt.auth');
+});
+
 Route::resource('comment','Controller\CommentController');
 Route::resource('tag','Controller\TagController');
 Route::resource('content','Controller\ContentController');

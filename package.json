@@ -21,11 +21,23 @@
         "sass": "^1.20.1",
         "sass-loader": "7.*",
         "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.10"
+        "vue-axios": "^2.1.5",
+        "vue-loader": "^15.9.1",
+        "vue-router": "^3.1.6",
+        "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
-        "vue-axios": "^2.1.5",
+        "@websanova/vue-auth": "github:websanova/vue-auth",
+        "editor.md": "^1.5.0",
+        "github-markdown-css": "^4.0.0",
+        "highlight.js": "^9.18.1",
+        "inscrybmde": "^1.11.6",
+        "simplemde": "^1.11.2",
+        "simplemde-theme-base": "^0.2.1",
+        "vue-cookies": "^1.7.0",
+        "vue-input-tag": "^2.0.7",
         "vue-route": "^1.5.1",
-        "vue-router": "^3.1.5"
+        "vue-simplemde": "^1.0.4",
+        "vuex": "^3.2.0"
     }
 }

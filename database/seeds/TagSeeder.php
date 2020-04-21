@@ -16,7 +16,7 @@ class TagSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         // DB::table('tag')->truncate();
 
-        $limit = 10;
+        $limit = 5;
 
         for ($i = 0; $i < $limit; $i++) {
             DB::table('tag')->insert([

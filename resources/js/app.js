@@ -9,14 +9,28 @@ import VueRouter from 'vue-router';
 import { routes }  from './index';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import VueCookies from 'vue-cookies';
+import VueSimplemde from 'vue-simplemde';
+import Vuex from 'vuex';
+import 'simplemde/dist/simplemde.min.css';
+import {storeData} from './store/store'
+import InputTag from 'vue-input-tag'
 
 require('./bootstrap');
 axios.defaults.baseURL = 'http://127.0.0.1:8000/api';
 
 window.Vue = require('vue');
-
-Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
+Vue.use(Vuex);
+Vue.use(VueRouter);
+Vue.use(VueCookies);
+Vue.component('vue-simplemde', VueSimplemde);
+Vue.component('input-tag', InputTag)
+
+Vue.$cookies.config('1d');
+
+const store = new Vuex.Store(storeData);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -25,8 +39,8 @@ Vue.use(VueAxios, axios);
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))   // this working : find all find .vue and render for component
+const files = require.context('./', true, /\.vue$/i)
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))   // this working : find all find .vue and render for component
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
@@ -44,5 +58,6 @@ const router = new VueRouter({
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    store
 });
