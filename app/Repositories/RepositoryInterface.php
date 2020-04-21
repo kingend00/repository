@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -16,6 +17,8 @@ interface RepositoryInterface
 
     public function find($id);
     public function delete($id);
+    public function store(Request $request);
+    public function create();
     public function show();
     public function update(Model $model, $attribute = []);
     public function whereEqualCondition($condition1,$condition2);

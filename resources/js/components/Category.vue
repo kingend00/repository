@@ -68,14 +68,12 @@ export default {
     methods:{
         getCategory(){
             axios.get('/category_group/'+ this.id).then(response => {
-                console.log(response)
                 this.category_group_details = response.data
             }).catch(e => {
                 console.log('error',e)
             });
 
             axios.get('/category/'+ this.id).then(response => {
-                console.log(response)
                 this.category = response.data
             }).catch(e => {
                 console.log('error',e)
@@ -83,7 +81,6 @@ export default {
         },
         getCategoryContent(id){
             axios.get('/content/'+id).then(response => {
-                console.log(response)
                 this.content = response.data
             }).catch(e => {
                 console.log('error',e)

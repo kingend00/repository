@@ -29,6 +29,15 @@ class UserSeeder extends Seeder
             ]);
         }
 
+        DB::table('users')->insert([
+            'name' => "Super admintrator",
+            'email' => "hoang.nguyen.connectiv@gmail.com",
+            'phone_number' => "012345679",
+            'password' => bcrypt('12345678'),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
         Schema::enableForeignKeyConstraints();
     }
 }

@@ -24,7 +24,7 @@ class ContentSeeder extends Seeder
 
         $faker = Faker\Factory::create();
 
-        $limit = 10;
+        $limit = 5;
         Schema::disableForeignKeyConstraints();
         // DB::table('content')->truncate();
         $faker = \Faker\Factory::create();
