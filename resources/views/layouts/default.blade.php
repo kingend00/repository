@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div id="sidebar-global">                    
-                        <category-group></category-group>          
+                        <post-group></post-group>          
                 </div>
                 <div id="copyright">
                     <p>&copy; Untitled. All rights reserved. | Photos by <a href="http://hoangx.com/">Hoangx</a> | Design by <a href="http://templated.co" rel="nofollow">ROGTEAM</a>.</p>

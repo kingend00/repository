@@ -6,21 +6,15 @@ import Login from './components/Login.vue'
 import AdminLayout from './components/layouts/Admin.vue'
 import AdminDashboard from './components/Admin.vue'
 import PostLayout from './components/layouts/Posts.vue'
-import Category from './components/Category.vue'
+import Post from './components/Post.vue'
 import AddPost from './components/Post/AddPost.vue'
 import ListPost from './components/Post/ListPost.vue'
-import CategoryDetails from './components/CategoryDetails.vue'
-
-// import CategoryCreateView from './components/CategoryCreateView'
 
 export const routes = [
 	{ path: '/test', name: 'test', component: Test },
 	{ path: '/', name: 'home_page', component: HomePage, children:[
 		{
-			path:'/category_group/:id', name:'category_group', component:Category,children:
-			[
-				{path:'/category/show_details/:category_details', name:'category_details', component:CategoryDetails}
-			]
+			path:'/category_group/:id', name:'category_group', component:Post
 		}
 	]},
 	{path:"/auth",name:"auth",component:Auth,children:[

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CategoryGroup extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CategoryGroup extends Migration
      */
     public function up()
     {
-        Schema::create('category_group', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title')->unique();
+            $table->string('title');
+            $table->string('slug');
+            $table->mediumText('content');
+            $table->integer('postable_id');
+            $table->string('postable_type');
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ class CategoryGroup extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_group');
+        Schema::dropIfExists('posts');
     }
 }

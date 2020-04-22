@@ -9,25 +9,25 @@
             </div>
         </div>
         </div>
-        <category></category>
+        <post></post>
         <router-view></router-view>
         
     </div>
 </template>
 <script>
-import Category from "./Category.vue"
+import Post from "./Post.vue"
 export default {
     components: {
-        'category': Category
+        'post': Post
     },
     data() {
        return{
-            category_group:null,
+            post_group:null,
        }
     },
     created(){
-        axios.get('/category_group/').then(response => {
-            this.category_group = response.data;
+        axios.get('/post_group/').then(response => {
+            this.post_group = response.data;
         }).catch(e => {
             console.log('error',e)
         });

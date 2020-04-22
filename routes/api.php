@@ -16,12 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::resource('category_group','Controller\CategoryGroupController');
-Route::resource('category','Controller\CategoryController');
-
-Route::group(['prefix'=>'category'],function(){
-    Route::get('/show_details/{$id}','Controller\CategoryController@showDetails');
-});
 
 Route::group(['prefix' => 'user'],function(){
     Route::post('/login','Controller\UserController@login');
@@ -31,5 +25,6 @@ Route::group(['prefix' => 'user'],function(){
 
 Route::resource('comment','Controller\CommentController');
 Route::resource('tag','Controller\TagController');
-Route::resource('content','Controller\ContentController');
-Route::resource('user','Controller\UserController');
+Route::resource('post_group','Controller\PostGroupController');
+Route::resource('post','Controller\PostController');
+Route::resource('post_tag','Controller\PostTagController');
