@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Content extends Migration
+class CreatePostGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,10 @@ class Content extends Migration
      */
     public function up()
     {
-        Schema::create('content', function (Blueprint $table) {
+        Schema::create('post_groups', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('content');
-            $table->string('rate');
-            $table->string('rate_count');
-            $table->unsignedBigInteger('category_id');
             $table->timestamps();
-            
-        });
-
-        Schema::table('content', function($table) {
-            $table->foreign('category_id')->references('id')->on('category');
         });
     }
 
@@ -36,6 +27,6 @@ class Content extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('content');
+        Schema::dropIfExists('post_groups');
     }
 }

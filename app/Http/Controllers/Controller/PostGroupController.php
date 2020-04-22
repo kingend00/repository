@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\CategoryGroup;
-use App\Repositories\CategoryGroup\CategoryGroupRepository;
-// use App\Repositories\Contracts\CategoryGroupRepository;
+use Illuminate\Http\Request;
+use App\Model\PostGroup;
+use App\Repositories\PostGroup\PostGroupRepository;
 
-class CategoryGroupController extends Controller
+class PostGroupController extends Controller
 {
+    protected $postGroupRepository;
 
-    protected $categoryGroupRepository;
-
-    public function __construct(CategoryGroupRepository $categoryGroupRepository)
+    public function __construct(PostGroupRepository $postGroupRepository)
     {
-        $this->categoryGroupRepository = $categoryGroupRepository;
+        $this->postGroupRepository = $postGroupRepository;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,9 +23,7 @@ class CategoryGroupController extends Controller
      */
     public function index()
     {
-        $data = $this->categoryGroupRepository->all();
-
-        return $data;
+        return $this->postGroupRepository->all();
     }
 
     /**
@@ -58,8 +55,7 @@ class CategoryGroupController extends Controller
      */
     public function show($id)
     {
-        $data_details = $this->categoryGroupRepository->show();
-        return $data_details;
+        //
     }
 
     /**

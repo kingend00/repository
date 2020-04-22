@@ -15,14 +15,10 @@ class Comment extends Migration
     {
         Schema::create('comment', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('content');
-            $table->unsignedBigInteger('user_id');
+            $table->string('username');
+            $table->string('comment');
             $table->timestamps();
             
-        });
-
-        Schema::table('comment', function($table) {
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

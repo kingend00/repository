@@ -14,20 +14,22 @@ class UserSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
         Schema::disableForeignKeyConstraints();
+        DB::table('users')->truncate();
+
         // DB::table('users')->truncate();
 
-        $limit = 10;
+        // $limit = 10;
 
-        for ($i = 0; $i < $limit; $i++) {
-            DB::table('users')->insert([
-                'name' => $faker->name,
-                'email' => $faker->unique()->email,
-                'phone_number' => rand(),
-                'password' => bcrypt('12345678'),
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            ]);
-        }
+        // for ($i = 0; $i < $limit; $i++) {
+        //     DB::table('users')->insert([
+        //         'name' => $faker->name,
+        //         'email' => $faker->unique()->email,
+        //         'phone_number' => rand(),
+        //         'password' => bcrypt('12345678'),
+        //         'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        //         'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        //     ]);
+        // }
 
         DB::table('users')->insert([
             'name' => "Super admintrator",

@@ -4,17 +4,18 @@ namespace App\Http\Controllers\Controller;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\Category;
-use App\Repositories\Category\CategoryRepository;
-class CategoryController extends Controller
+use App\Model\Post;
+use App\Repositories\Post\PostRepository;
+
+class PostController extends Controller
 {
+    protected $postRepository;
 
-    protected $categoryRepository;
-
-    public function __construct(CategoryRepository $categoryRepository)
+    public function __construct(PostRepository $postRepository)
     {
-        $this->categoryRepository = $categoryRepository;
+        $this->postRepository = $postRepository;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +23,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return $this->categoryRepository->all();
+        return $this->postRepository->all();
     }
 
     /**
@@ -54,11 +55,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        return $this->categoryRepository->whereEqualCondition('category_group_id',$id);
-    }
-    public function showDetails($id)
-    {
-        return $this->categoryRepository->find($id);
+        return $this->postRepository->find($id);
     }
 
     /**

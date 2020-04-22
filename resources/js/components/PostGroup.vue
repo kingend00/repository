@@ -7,9 +7,9 @@
         <li><a href="reveal.html">Contact</a></li>
         <li id="wrapper">
             <div class="dropdown">
-            <button @click="dropdown" class="dropbtn third">Category</button>
+            <button @click="dropdown" class="dropbtn third">Posts Group</button>
                 <div id="myDropdown" :class="'dropdown-content '+activeDropdown">
-                    <router-link v-for="(data,index) in category_group " :key="index" :to="'/category_group/'+data.id">{{data.title}}</router-link>
+                    <router-link v-for="(data,index) in post_group " :key="index" :to="'/post_group/'+data.id">{{data.title}}</router-link>
                 </div>
             </div>
         </li>
@@ -19,14 +19,14 @@
 export default {
     data() {
        return{
-            category_group:null,
+            post_group:null,
             activeDropdown:'',
             userLogin:this.$cookies.get('token') || ''
        }
     },
     created(){   
-        axios.get('/category_group/').then(response => {
-            this.category_group = response.data;
+        axios.get('/post_group/').then(response => {
+            this.post_group = response.data;
         }).catch(e => {
             console.log('error',e)
         });

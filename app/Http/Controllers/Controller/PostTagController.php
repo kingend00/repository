@@ -3,17 +3,19 @@
 namespace App\Http\Controllers\Controller;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Content\ContentRepository;
 use Illuminate\Http\Request;
+use App\Model\PostTag;
+use App\Repositories\PostTag\PostTagRepository;
 
-class ContentController extends Controller
+class PostTagController extends Controller
 {
-    protected $contentRepository;
-    
-    public function __construct(ContentRepository $contentRepository)
+    protected $postTagRepository;
+
+    public function __construct(PostTagRepository $postTagRepository)
     {
-        $this->contentRepository =  $contentRepository;
+        $this->postTagRepository = $postTagRepository;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +23,7 @@ class ContentController extends Controller
      */
     public function index()
     {
-        return $this->contentRepository->all();
+        return $this->postTagRepository->all();
     }
 
     /**
@@ -53,7 +55,7 @@ class ContentController extends Controller
      */
     public function show($id)
     {
-        return $this->contentRepository->whereEqualCondition('category_id',$id);
+        //
     }
 
     /**

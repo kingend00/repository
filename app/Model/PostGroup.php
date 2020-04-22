@@ -4,9 +4,9 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CategoryGroup extends Model
+class PostGroup extends Model
 {
-    protected $table="category_group";
+    protected $table="post_groups";
 
     protected $fillable = ['title'];
 }

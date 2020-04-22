@@ -3,17 +3,19 @@
 namespace App\Http\Controllers\Controller;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Comment\CommentRepository;
 use Illuminate\Http\Request;
+use App\Model\Comment;
+use App\Repositories\Comment\CommentRepository;
 
 class CommentController extends Controller
 {
     protected $commentRepository;
 
-    public function __construct(CommentRepository $commentRepository )
+    public function __construct(CommentRepository $commentRepository)
     {
         $this->commentRepository = $commentRepository;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -53,7 +55,7 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        return $this->commentRepository->find($id);
+        //
     }
 
     /**
