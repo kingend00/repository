@@ -1947,7 +1947,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2132,8 +2131,9 @@ __webpack_require__.r(__webpack_exports__);
     getPost: function getPost() {
       var _this = this;
 
-      axios.get('/post').then(function (response) {
+      axios.get('/post_group/get_post/' + this.id).then(function (response) {
         _this.post = response.data;
+        console.log('post_group_data', response.data);
       })["catch"](function (e) {
         console.log('error', e);
       });
@@ -87396,7 +87396,7 @@ var render = function() {
   return _c(
     "div",
     { attrs: { id: "wrapper" } },
-    [_vm._m(0), _vm._v(" "), _c("post"), _vm._v(" "), _c("router-view")],
+    [_vm._m(0), _vm._v(" "), _c("router-view")],
     1
   )
 }
@@ -105667,8 +105667,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routes", function() { return routes; });
-/* harmony import */ var _components_Test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Test */ "./resources/js/components/Test.vue");
-/* harmony import */ var _components_NotFound__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/NotFound */ "./resources/js/components/NotFound.vue");
+/* harmony import */ var _components_Test_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Test.vue */ "./resources/js/components/Test.vue");
+/* harmony import */ var _components_NotFound_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/NotFound.vue */ "./resources/js/components/NotFound.vue");
 /* harmony import */ var _components_HomePage_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/HomePage.vue */ "./resources/js/components/HomePage.vue");
 /* harmony import */ var _components_layouts_Auth_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/layouts/Auth.vue */ "./resources/js/components/layouts/Auth.vue");
 /* harmony import */ var _components_Login_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Login.vue */ "./resources/js/components/Login.vue");
@@ -105692,14 +105692,18 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [{
   path: '/test',
   name: 'test',
-  component: _components_Test__WEBPACK_IMPORTED_MODULE_0__["default"]
+  component: _components_Test_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
 }, {
   path: '/',
   name: 'home_page',
   component: _components_HomePage_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
   children: [{
-    path: '/category_group/:id',
-    name: 'category_group',
+    path: '',
+    name: 'home_page_index',
+    component: _components_Test_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }, {
+    path: '/post_group/:id',
+    name: 'post_group',
     component: _components_Post_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
   }]
 }, {
@@ -105736,7 +105740,7 @@ var routes = [{
 }, {
   path: '*',
   name: 'not_found',
-  component: _components_NotFound__WEBPACK_IMPORTED_MODULE_1__["default"]
+  component: _components_NotFound_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
 }];
 
 /***/ }),

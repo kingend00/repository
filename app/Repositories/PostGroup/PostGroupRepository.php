@@ -11,4 +11,8 @@ class PostGroupRepository extends BaseRepository implements PostGroupRepositoryI
     {
         parent::__construct($model);
     }
+    public function getPost($id_postGroup){
+        $post_group = PostGroup::findOrFail($id_postGroup);
+        return $post_group->posts;
+    }
 }
