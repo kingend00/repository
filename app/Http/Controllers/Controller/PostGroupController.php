@@ -26,6 +26,11 @@ class PostGroupController extends Controller
         return $this->postGroupRepository->all();
     }
 
+    public function getPost($id_postGroup)
+    {
+        return $this->postGroupRepository->getPost($id_postGroup);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

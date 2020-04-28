@@ -9,7 +9,6 @@
             </div>
         </div>
         </div>
-        <post></post>
         <router-view></router-view>
         
     </div>

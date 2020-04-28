@@ -31,8 +31,9 @@ export default {
     },
     methods:{
         getPost(){
-            axios.get('/post').then(response => {
+            axios.get('/post_group/get_post/'+this.id).then(response => {
                 this.post = response.data
+                console.log('post_group_data' ,response.data)
             }).catch(e => {
                 console.log('error',e)
             });
