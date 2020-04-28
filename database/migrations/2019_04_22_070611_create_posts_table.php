@@ -18,8 +18,8 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->mediumText('content');
-            $table->integer('postable_id');
-            $table->string('postable_type');
+            $table->integer('postable_id')->nullable();
+            $table->string('postable_type')->nullable();
             $table->timestamps();
         });
     }

@@ -30,6 +30,15 @@ export default {
         }).catch(e => {
             console.log('error',e)
         });
+
+        axios.get('/user/data')
+        .then(res => {
+            console.log('res - postGroup',res)
+
+        }).catch(err => {
+                this.userLogin = '',
+                this.logout()
+        })
     },
     methods:{
         dropdown(){

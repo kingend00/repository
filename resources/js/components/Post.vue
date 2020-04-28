@@ -1,19 +1,18 @@
 <template>
     <div id="page">
-            <div id="content">
-                <h1>{{ postContent }}</h1>
-                <div  v-for="(data,index) in postContent" :key="index">
-                        <!-- <h2>{{data}}</h2> -->
-
-                </div>
-            <div id="sidebar">
-                <article class="box2">
-                    <h2>Article</h2><br>
-                    <ul v-for="(data,index) in post" :key="index" class="style2">                        
-                        <li><a href="#" @click="getPostContent(data.id)">{{data.title}}</a></li>
-                    </ul>
-                </article>
-            </div>
+        <div id="content">                
+            <span  v-for="(data,index) in postContent" :key="index">
+                    <h2>{{data.title}}</h2>
+                    <h3>{{data.content}}</h3>
+            </span>
+        </div>
+        <div id="sidebar">
+            <article class="box2">
+                <h2>Bài viết</h2><br>
+                <ul v-for="(data,index) in post" :key="index" class="style2">                        
+                    <li><a href="#" @click="getPostContent(data.id)">{{data.title}}</a></li>
+                </ul>
+            </article>
         </div>
     </div>
 </template>
@@ -40,7 +39,7 @@ export default {
         },
         getPostContent(id){
             axios.get('/post/'+id).then(response => {
-                this.postContent = response.data
+                this.postContent = [response.data]
                 console.log('postContent',this.postContent)
             }).catch(e => {
                 console.log('error',e)

@@ -38,6 +38,9 @@ class BaseRepository implements RepositoryInterface
     public function store(Request $request){
         return $this->model->create($request);
     }
+    public function storeArray($data=[]){
+        return $this->model->create($data);
+    }
     public function create(){
         return "this is function create";
     }

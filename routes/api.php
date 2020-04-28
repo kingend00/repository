@@ -22,6 +22,7 @@ Route::group(['prefix' => 'user'],function(){
     Route::get('/refresh', 'Controller\UserController@refresh')->middleware('jwt.refresh');
     Route::get('/data', 'Controller\UserController@user')->middleware('jwt.auth');
 });
+Route::post('/image/store', 'Controller\ImageController@store');
 
 Route::resource('comment','Controller\CommentController');
 Route::resource('tag','Controller\TagController');
