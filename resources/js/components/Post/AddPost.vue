@@ -28,7 +28,7 @@
                 <div class="button-right">
                       <div class="fileUpload blue-btn btn width100">
                             <span class="text-center">Insert Image</span>
-                            <input type="file" class="uploadlogo" v-on:change="onImageChange" />
+                            <input type="file" class="uploadlogo" ref="file" v-on:change="onImageChange" />
                         </div>
                     <button class="btn first" @click="addPost" >Save</button>
                     <button class="btn first" @click="uploadImage" >uploadImage</button>
@@ -111,23 +111,20 @@ export default {
                 console.log(err);
             })
         },
-        onImageChange(e) {
+        onImageChange(event) {
             console.log('image has been inserted')
-            let files = e.target.files || e.dataTransfer.files;
-            if (!files.length)
-                return;
-            this.createImage(files[0]);
-        },
-        createImage(file) {
-            let reader = new FileReader();
-            let vm = this;
-            reader.onload = (e) => {
-                vm.image = e.target.result;
-            };
-            reader.readAsDataURL(file);
+            this.image = this.$refs.file.files[0];
         },
         uploadImage(){
-            axios.post('/image/store',{image: this.image}).then(response => {
+            const url = '/image/store';
+            const formData = new FormData();
+            formData.append('image',this.image)
+            const config = {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            }
+            axios.post(url,formData,config).then(response => {
                 if (response.data.success) {
                     alert(response.data.success);
                 }

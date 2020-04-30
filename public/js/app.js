@@ -2280,26 +2280,20 @@ window.hljs = highlight_js__WEBPACK_IMPORTED_MODULE_1___default.a;
         console.log(err);
       });
     },
-    onImageChange: function onImageChange(e) {
+    onImageChange: function onImageChange(event) {
       console.log('image has been inserted');
-      var files = e.target.files || e.dataTransfer.files;
-      if (!files.length) return;
-      this.createImage(files[0]);
-    },
-    createImage: function createImage(file) {
-      var reader = new FileReader();
-      var vm = this;
-
-      reader.onload = function (e) {
-        vm.image = e.target.result;
-      };
-
-      reader.readAsDataURL(file);
+      this.image = this.$refs.file.files[0];
     },
     uploadImage: function uploadImage() {
-      axios.post('/image/store', {
-        image: this.image
-      }).then(function (response) {
+      var url = '/image/store';
+      var formData = new FormData();
+      formData.append('image', this.image);
+      var config = {
+        headers: {
+          'content-type': 'multipart/form-data'
+        }
+      };
+      axios.post(url, formData, config).then(function (response) {
         if (response.data.success) {
           alert(response.data.success);
         }
@@ -2370,7 +2364,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$cookies.remove('token');
       this.$store.commit('changeLogin', false);
       this.$router.push({
-        name: 'home_page'
+        name: 'home_page_index'
       });
       console.log('logout');
     }
@@ -87859,6 +87853,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("input", {
+                ref: "file",
                 staticClass: "uploadlogo",
                 attrs: { type: "file" },
                 on: { change: _vm.onImageChange }
