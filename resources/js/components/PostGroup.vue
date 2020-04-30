@@ -52,7 +52,7 @@ export default {
         logout(){
             this.$cookies.remove('token')
             this.$store.commit('changeLogin',false)
-            this.$router.push({name:'home_page'})
+            this.$router.push({name:'home_page_index'})
             console.log('logout')
         }
     },
