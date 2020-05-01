@@ -1,13 +1,13 @@
 <template>
     <div id="wrapper">
         <div id="menu-wrapper">
-        <div id="header-wrapper">
-            <div id="header">
-                <div id="logo">
-                    <h1><a href="#">HoangX Blog</a></h1>
+            <div id="header-wrapper">
+                <div id="header">
+                    <div id="logo">
+                        <h1><router-link class="li-title" :to="{name:'home_page_index'}">Hoangx Blog</router-link></h1>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
         <router-view></router-view>
         
@@ -33,6 +33,14 @@ export default {
     }
 }
 </script>
-<style>
+<style lang="scss">
+#header-wrapper{
+    border-radius: 0.6em;
+
+}
+#menu-wrapper{
+    background-color: white;
+}
+
 
 </style>

@@ -57,7 +57,7 @@ class PostController extends Controller
             'slug' => $request->get('slug'),
             'content' => $request->get('content')
         ]);
-        $postGroup = PostGroup::findOrFail($request->get('post_group'))->first();
+        $postGroup = PostGroup::findOrFail($request->get('post_group'));
         $postGroup->posts()->save($dataPost);
         foreach($request->get('tag') as $item){
             $checkTagExists = Tag::where('tag',$item)->first();
@@ -67,6 +67,10 @@ class PostController extends Controller
             $checkTagExists->posts()->save($dataPost);            
         }
         return "success";
+    }
+    public function getTag($postId)
+    {
+        return $this->postRepository->getTag($postId);
     }
 
     /**

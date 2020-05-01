@@ -25,7 +25,11 @@ Route::group(['prefix' => 'user'],function(){
 Route::group(['prefix' => 'post_group'],function(){
     Route::get('/get_post/{id_postGroup}','Controller\PostGroupController@getPost');
 });
+
+Route::get('/post/getTag', 'Controller\PostController@getTag');
+
 Route::post('/image/store', 'Controller\ImageController@store');
+Route::post('/image/saveImageProvisional', 'Controller\ImageController@saveImageProvisional');
 
 Route::resource('comment','Controller\CommentController');
 Route::resource('tag','Controller\TagController');

@@ -1,4 +1,4 @@
-import Test from './components/Test.vue'
+import HomePageIndex from './components/HomePageIndex.vue'
 import NotFound from './components/NotFound.vue'
 import HomePage from './components/HomePage.vue'
 import Auth from './components/layouts/Auth.vue'
@@ -11,7 +11,7 @@ import AddPost from './components/Post/AddPost.vue'
 import ListPost from './components/Post/ListPost.vue'
 
 export const routes = [
-    { path: '/test', name: 'test', component: Test },
+    { path: '/test', name: 'test', component: HomePageIndex },
     {
         path: '/',
         name: 'home_page',
@@ -19,7 +19,7 @@ export const routes = [
         children: [{
             path: '',
             name: 'home_page_index',
-            component: Test
+            component: HomePageIndex
         }, {
             path: '/post_group/:id',
             name: 'post_group',
