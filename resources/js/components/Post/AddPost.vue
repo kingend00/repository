@@ -52,7 +52,7 @@ export default {
             tags:[],
             post_group:[],
             post_group_check:'',
-            image:''
+            image:[]
         }
     },
     computed:{
@@ -61,9 +61,9 @@ export default {
         }
     },
     watch:{
-        // post_group_check(){
-        //     console.log('post_group_check',this.post_group_check.id)
-        // }
+        post_group_check(){
+            console.log('post_group_check',this.post_group_check)
+        }
     },
     created(){
         axios.get('/post_group')
@@ -114,6 +114,19 @@ export default {
         onImageChange(event) {
             console.log('image has been inserted')
             this.image = this.$refs.file.files[0];
+            const url = '/image/saveImageProvisional';
+            const formData = new FormData();
+            formData.append('image',this.image)
+            const config = {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            }
+            axios.post(url,formData,config).then(response => {
+                if (response.data.file_path) {
+                    this.content += '![]('+process.env.MIX_AWS_URL+'/'+response.data.file_path+')';
+                }
+            });
         },
         uploadImage(){
             const url = '/image/store';
@@ -129,6 +142,9 @@ export default {
                     alert(response.data.success);
                 }
             });
+        },
+        cancel(){
+
         }
     }
 }

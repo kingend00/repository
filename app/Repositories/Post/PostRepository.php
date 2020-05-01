@@ -11,4 +11,8 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface {
     {
         parent::__construct($model);
     }
+    public function getTag($postId){
+        $post = Post::findOrFail($postId);
+        return $post->tags;
+    }
 }

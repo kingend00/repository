@@ -28,16 +28,20 @@
     },
     "dependencies": {
         "@websanova/vue-auth": "github:websanova/vue-auth",
+        "dotenv": "^8.2.0",
         "editor.md": "^1.5.0",
         "github-markdown-css": "^4.0.0",
         "highlight.js": "^9.18.1",
         "inscrybmde": "^1.11.6",
+        "markdown-it": "^10.0.0",
+        "markdown-it-vue": "^1.0.11",
         "simplemde": "^1.11.2",
         "simplemde-theme-base": "^0.2.1",
         "vue-cookies": "^1.7.0",
         "vue-input-tag": "^2.0.7",
         "vue-route": "^1.5.1",
         "vue-simplemde": "^1.0.4",
+        "vuejs-paginate": "^2.1.0",
         "vuex": "^3.2.0"
     }
 }

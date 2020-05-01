@@ -6,18 +6,22 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router';
-import { routes }  from './index';
+import { routes } from './index';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import VueCookies from 'vue-cookies';
 import VueSimplemde from 'vue-simplemde';
 import Vuex from 'vuex';
 import 'simplemde/dist/simplemde.min.css';
-import {storeData} from './store/store'
+import { storeData } from './store/store'
 import InputTag from 'vue-input-tag'
+import MarkdownItVue from 'markdown-it-vue';
+import Paginate from 'vuejs-paginate';
+
+
 
 require('./bootstrap');
-axios.defaults.baseURL = 'http://127.0.0.1:8000/api';
+axios.defaults.baseURL = process.env.MIX_FRONTEND_URL;
 
 window.Vue = require('vue');
 Vue.use(VueAxios, axios);
@@ -25,11 +29,15 @@ Vue.use(Vuex);
 Vue.use(VueRouter);
 Vue.use(VueCookies);
 Vue.component('vue-simplemde', VueSimplemde);
-Vue.component('input-tag', InputTag)
+Vue.component('input-tag', InputTag);
+Vue.component('markdown-it-vue', MarkdownItVue);
+Vue.component('paginate', Paginate)
+
 
 Vue.$cookies.config('1d');
 
 const store = new Vuex.Store(storeData);
+// console.log('process.env.AWS_URL', process.env.MIX_AWS_URL)
 
 /**
  * The following block of code may be used to automatically register your
@@ -40,7 +48,7 @@ const store = new Vuex.Store(storeData);
  */
 
 const files = require.context('./', true, /\.vue$/i)
-files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))   // this working : find all find .vue and render for component
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default)) // this working : find all find .vue and render for component
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
