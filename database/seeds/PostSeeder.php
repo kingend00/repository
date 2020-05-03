@@ -31,7 +31,7 @@ class PostSeeder extends Seeder
                         used with plural nouns such as facts or results. ) The percentages in the 2005 survey represent significant
                             increases over those of our 1988 survey, making it safe to say that singular data has become a standard usage.',
                     'postable_id' => 1,
-                    'postable_type' => 'tags',
+                    'postable_type' => 'App\Model\PostGroup',
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ],
@@ -53,7 +53,7 @@ class PostSeeder extends Seeder
                             used with plural nouns such as facts or results. ) The percentages in the 2005 survey represent significant
                             increases over those of our 1988 survey, making it safe to say that singular data has become a standard usage.',
                     'postable_id' => 1,
-                    'postable_type' => 'tags',
+                    'postable_type' => 'App\Model\PostGroup',
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]
