@@ -8,6 +8,10 @@
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" class="form-control" v-model="title" id="title" aria-describedby="titleHelp" placeholder="Title...">
+                </div>                
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" v-model="description" id="description" aria-describedby="titleHelp" placeholder="Description...">
                 </div>
                 <div class="form-group">
                     <label for="slug">Slug</label>
@@ -49,6 +53,7 @@ export default {
         return {
             content:'',
             title:'',
+            description:'',
             tags:[],
             post_group:[],
             post_group_check:'',
@@ -103,6 +108,7 @@ export default {
                 title:this.title,
                 slug:this.convertSlug,
                 tag:this.tags,
+                description:this.description,
                 content:this.content,
                 post_group:this.post_group_check
             }).then(res =>{

@@ -8,7 +8,7 @@ class Post extends Model
 {
     protected $table="posts";
 
-    protected $fillable = ['title','slug','content','postable_id','postable_type'];
+    protected $fillable = ['title','slug','description','content','postable_id','postable_type'];
 
     /**
      * Get all of the tags for the post.
