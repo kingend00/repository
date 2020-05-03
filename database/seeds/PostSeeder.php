@@ -15,6 +15,7 @@ class PostSeeder extends Seeder
         $posts = [
                 [
                     'title'=>'Python cơ bản phần 1',
+                    'description' => "Description Python cơ bản phần 1 ",
                     'slug' => 'python-co-ban-phan-1',
                     'content' => 'The word data is the plural of Latin datum, “something given.” In English, 
                         most notably in scientific usage, this plural usage is still common, as in this example: 
@@ -36,6 +37,7 @@ class PostSeeder extends Seeder
                 ],
                 [
                     'title'=>'Python cơ bản phần 2',
+                    'description' => "Description Python cơ bản phần 2 ",
                     'slug' => 'python-co-ban-phan-2',
                     'content' => 'The word data is the plural of Latin datum, “something given.” In English, 
                         most notably in scientific usage, this plural usage is still common, as in this example: 
