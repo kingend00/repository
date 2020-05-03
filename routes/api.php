@@ -27,6 +27,10 @@ Route::group(['prefix' => 'post_group'],function(){
 });
 
 Route::get('/post/getTag', 'Controller\PostController@getTag');
+Route::get('/post/getPostGroup', 'Controller\PostController@getPostGroup');
+
+Route::get('/tag/getPost', 'Controller\TagController@getPost');
+Route::get('/tag/getPostTag/{tagId}', 'Controller\TagController@getPostTag');
 
 Route::post('/image/store', 'Controller\ImageController@store');
 Route::post('/image/saveImageProvisional', 'Controller\ImageController@saveImageProvisional');

@@ -23,6 +23,14 @@ class TagController extends Controller
     {
         return $this->tagRepository->all();
     }
+    public function getPost()
+    {
+        return $this->tagRepository->getPost();
+    }
+    public function getPostTag($tagId)
+    {
+        return $this->tagRepository->getPostTag($tagId);
+    }
 
     /**
      * Show the form for creating a new resource.

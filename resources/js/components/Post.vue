@@ -6,7 +6,9 @@
                     <header>
                         <h1 contenteditable>{{data.title}}</h1>
                     </header>
-                    <markdown-it-vue class="md-body" :content="data.content" />
+                    <span class="md-body width-img">
+                        <markdown-it-vue class="md-body width-img" :content="data.content" />
+                    </span>
                     <!-- <h3>{{data.content}}</h3> -->
             </span>
         </div>
@@ -19,7 +21,7 @@
                             <div class="card-header" >
                                 <a href="#">{{data.post.title}}</a>
                             </div>
-                            <div class="card-body">
+                            <div class="card-div">
                                 <blockquote class="blockquote mb-0">
                                 <h5>Tags</h5>
                                 <a href="#" v-for="(data_tag,index) in data.tags" :key="index" class="tag">{{ data_tag.tag }}</a>
@@ -37,6 +39,8 @@
     </div>
 </template>
 <script>
+import 'markdown-it-vue/dist/markdown-it-vue.css'
+
 export default {
     data(){
         return {
@@ -49,11 +53,14 @@ export default {
     },
     created(){
         this.getPost();
+        if(this.$store.state.showPostDetail)
+            this.getPostContent(this.$store.state.showPostDetail)
     },
     methods:{
         getPost(){
             axios.get('/post_group/get_post/'+this.id).then(response => {
-                this.post = response.data
+                this.post = response.data;
+                window.scrollTo(0,0);
                 console.log('post_group_data' ,response.data)
             }).catch(e => {
                 console.log('error',e)
@@ -61,6 +68,7 @@ export default {
         },
         getPostContent(id){
             axios.get('/post/'+id).then(response => {
+                window.scrollTo(0,0);
                 this.postContent = [response.data]
             }).catch(e => {
                 console.log('error',e)
@@ -75,14 +83,22 @@ export default {
     }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
     #sidebar{
         border-left: 3px inset rgba(28,110,164,0.7);
         width: 30%;
         height: auto;
+        margin-bottom: 3%;
         min-height: 100%;
         float: right;
         margin-top: 1%;
+    }
+    .md-body img{
+        width:100%;
+    }
+    .card-div{
+        margin-left: 3%;
+        margin-top: 3%;
     }
     #content{
         width: 66%;
@@ -109,8 +125,11 @@ export default {
     .card-body{
         cursor: pointer;
     }
+    .card{
+        margin-bottom: 3% !important;
+    }
     .card-body:hover{
-        box-shadow: 5px 10px 18px lightblue;
+        box-shadow: 5px 10px 18px rgb(135, 197, 218);
     }
     .content-short{
         display: inline-block;
@@ -164,6 +183,8 @@ export default {
     .tag:hover::after {
     border-left-color: crimson; 
     }
+
+
     header { 
     display: table;
     text-align: center; 
