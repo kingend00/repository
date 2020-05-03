@@ -59,6 +59,7 @@ class PostController extends Controller
         // return $request->all();
         $dataPost = $this->postRepository->storeArray([
             'title' => $request->get('title'),
+            'description' => $request->get('description'),
             'slug' => $request->get('slug'),
             'content' => $request->get('content')
         ]);

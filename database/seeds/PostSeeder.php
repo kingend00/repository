@@ -15,6 +15,7 @@ class PostSeeder extends Seeder
         $posts = [
                 [
                     'title'=>'Python cơ bản phần 1',
+                    'description' => "Description Python cơ bản phần 1 ",
                     'slug' => 'python-co-ban-phan-1',
                     'content' => 'The word data is the plural of Latin datum, “something given.” In English, 
                         most notably in scientific usage, this plural usage is still common, as in this example: 
@@ -30,12 +31,13 @@ class PostSeeder extends Seeder
                         used with plural nouns such as facts or results. ) The percentages in the 2005 survey represent significant
                             increases over those of our 1988 survey, making it safe to say that singular data has become a standard usage.',
                     'postable_id' => 1,
-                    'postable_type' => 'tags',
+                    'postable_type' => 'App\Model\PostGroup',
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ],
                 [
                     'title'=>'Python cơ bản phần 2',
+                    'description' => "Description Python cơ bản phần 2 ",
                     'slug' => 'python-co-ban-phan-2',
                     'content' => 'The word data is the plural of Latin datum, “something given.” In English, 
                         most notably in scientific usage, this plural usage is still common, as in this example: 
@@ -51,7 +53,7 @@ class PostSeeder extends Seeder
                             used with plural nouns such as facts or results. ) The percentages in the 2005 survey represent significant
                             increases over those of our 1988 survey, making it safe to say that singular data has become a standard usage.',
                     'postable_id' => 1,
-                    'postable_type' => 'tags',
+                    'postable_type' => 'App\Model\PostGroup',
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]
