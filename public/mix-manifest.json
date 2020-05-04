@@ -1,4 +1,17 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/js/components/AdminDashboard.js": "/js/components/AdminDashboard.js",
+    "/js/components/HomePage.js": "/js/components/HomePage.js",
+    "/js/components/HomePageIndex.js": "/js/components/HomePageIndex.js",
+    "/js/components/Login.js": "/js/components/Login.js",
+    "/js/components/NotFound.js": "/js/components/NotFound.js",
+    "/js/components/Post.js": "/js/components/Post.js",
+    "/js/components/layouts/AdminLayout.js": "/js/components/layouts/AdminLayout.js",
+    "/js/components/layouts/Auth.js": "/js/components/layouts/Auth.js",
+    "/js/components/layouts/PostLayout.js": "/js/components/layouts/PostLayout.js",
+    "/js/components/post/AddPost.js": "/js/components/post/AddPost.js",
+    "/js/components/post/ListPost.js": "/js/components/post/ListPost.js",
+    "/vendors~js/components/HomePage~js/components/Post.js": "/vendors~js/components/HomePage~js/components/Post.js",
+    "/vendors~js/components/post/AddPost.js": "/vendors~js/components/post/AddPost.js"
 }

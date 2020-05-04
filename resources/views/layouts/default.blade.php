@@ -79,7 +79,7 @@
                     <p>&copy; Untitled. All rights reserved. | Photos by <a href="http://hoangx.com/">Hoangx</a> | Design by <a href="http://templated.co" rel="nofollow">ROGTEAM</a>.</p>
                 </div>
         </div>
-        <script src="{{ asset('js/app.js') }}"></script>  
+        <script src="{{ mix('js/app.js') }}"></script>  
         <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
 
         <script type="text/javascript">

@@ -1,14 +1,14 @@
-import HomePageIndex from './components/HomePageIndex.vue'
-import NotFound from './components/NotFound.vue'
-import HomePage from './components/HomePage.vue'
-import Auth from './components/layouts/Auth.vue'
-import Login from './components/Login.vue'
-import AdminLayout from './components/layouts/Admin.vue'
-import AdminDashboard from './components/Admin.vue'
-import PostLayout from './components/layouts/Posts.vue'
-import Post from './components/Post.vue'
-import AddPost from './components/Post/AddPost.vue'
-import ListPost from './components/Post/ListPost.vue'
+const HomePageIndex = ()  => import (/* webpackChunkName: "js/components/HomePageIndex" */'./components/HomePageIndex.vue')
+const NotFound = ()  => import (/* webpackChunkName: "js/components/NotFound" */'./components/NotFound.vue')
+const HomePage = ()  => import (/* webpackChunkName: "js/components/HomePage" */'./components/HomePage.vue')
+const Auth = ()  => import (/* webpackChunkName: "js/components/layouts/Auth" */'./components/layouts/Auth.vue')
+const Login = ()  => import (/* webpackChunkName: "js/components/Login" */'./components/Login.vue')
+const AdminLayout = ()  => import (/* webpackChunkName: "js/components/layouts/AdminLayout" */'./components/layouts/Admin.vue')
+const AdminDashboard = ()  => import (/* webpackChunkName: "js/components/AdminDashboard" */'./components/Admin.vue')
+const PostLayout = ()  => import (/* webpackChunkName: "js/components/layouts/PostLayout" */'./components/layouts/Posts.vue')
+const Post = ()  => import (/* webpackChunkName: "js/components/Post" */'./components/Post.vue')
+const AddPost = ()  => import (/* webpackChunkName: "js/components/post/AddPost" */'./components/Post/AddPost.vue')
+const ListPost = ()  => import (/* webpackChunkName: "js/components/post/ListPost" */'./components/Post/ListPost.vue')
 
 export const routes = [
     { path: '/test', name: 'test', component: HomePageIndex },

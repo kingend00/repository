@@ -47,10 +47,10 @@ const store = new Vuex.Store(storeData);
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-const files = require.context('./', true, /\.vue$/i)
-files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default)) // this working : find all find .vue and render for component
+// const files = require.context('./', true, /\.vue$/i)
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default)) // this working : find all find .vue and render for component
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('post-group', require('./components/PostGroup.vue').default);
 
 
 const router = new VueRouter({

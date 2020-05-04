@@ -1,6 +1,6 @@
 <template>
     <ul>
-        <li class = "cl-effect-1"><router-link class="li-title" :to="{name:'home_page_index'}">Trang chủ</router-link></li>
+        <li class = "cl-effect-1"><a class="li-title" @click="reloadHomePageIndex()" href="#">Trang chủ</a></li>
         <li class = "cl-effect-1" v-if="!userLogin"><router-link class="li-title" :to="{name:'login'}" >Đăng nhập</router-link></li>
         <li class = "cl-effect-1" v-else><a @click="logout" class="li-title" href="#" :key="userLogin" >Đăng xuất</a></li>
         <li class = "cl-effect-1"><a href="css.html" class="li-title">About</a></li>
@@ -54,6 +54,10 @@ export default {
             this.$store.commit('changeLogin',false)
             this.$router.push({name:'home_page_index'})
             console.log('logout')
+        },
+        reloadHomePageIndex(){
+            this.$store.commit('reloadHomePageIndex',1);
+            this.$router.push({name:'home_page_index'}).catch(err => {})
         }
     },
     computed:{

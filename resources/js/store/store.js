@@ -2,7 +2,8 @@ export const storeData = {
     state: {
         result: 0,
         checkLogin: false,
-        showPostDetail: ''
+        showPostDetail: '',
+        reloadHomePageIndex:0
     },
     mutations: {
         changeLogin(state, data) {
@@ -12,6 +13,11 @@ export const storeData = {
         gotoPostDetail(state, data) {
             state.showPostDetail = data
             console.log('showPostDetail', state.showPostDetail)
+        },
+        reloadHomePageIndex(state,data){
+            state.reloadHomePageIndex += 1
+            console.log('reloadHomePageIndex', state.reloadHomePageIndex)
+
         }
     },
     getters: {},
