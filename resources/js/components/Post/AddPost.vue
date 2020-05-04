@@ -119,25 +119,29 @@ export default {
         },
         onImageChange(event) {
             console.log('image has been inserted')
-            this.image = this.$refs.file.files[0];
+            this.image.push(this.$refs.file.files[0]);
+            console.log(this.image)
             const url = '/image/saveImageProvisional';
             const formData = new FormData();
-            formData.append('image',this.image)
+            formData.append('image',this.$refs.file.files[0])
             const config = {
                 headers: {
                     'content-type': 'multipart/form-data'
                 }
             }
-            axios.post(url,formData,config).then(response => {
-                if (response.data.file_path) {
-                    this.content += '![]('+process.env.MIX_AWS_URL+'/'+response.data.file_path+')';
-                }
-            });
+            // axios.post(url,formData,config).then(response => {
+            //     if (response.data.file_path) {
+            //         this.content += '![]('+process.env.MIX_AWS_URL+'/'+response.data.file_path+')';
+            //     }
+            // });
+
         },
         uploadImage(){
             const url = '/image/store';
             const formData = new FormData();
-            formData.append('image',this.image)
+            for(var i = 0 ; i < this.image.length;i++){
+                formData.append('image[]',this.image[i])
+            }
             const config = {
                 headers: {
                     'content-type': 'multipart/form-data'
@@ -148,6 +152,7 @@ export default {
                     alert(response.data.success);
                 }
             });
+            this.image = []
         },
         cancel(){
 

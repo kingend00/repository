@@ -49,21 +49,28 @@ export default {
         }
     },
     created(){
-        axios.get('/post/getPostGroup/').then(response => {
+        this.getDataPostGroup();
+        this.getDataPost();
+
+    },
+    methods:{
+        getDataPostGroup(){
+          axios.get('/post/getPostGroup/').then(response => {
             this.post_data = response.data
-            console.log(this.post_data)
-            this.length_pagination = Math.round(response.data.length/10)
+            this.length_pagination = Math.round(response.data.length/10) <= 0 ? 1 : Math.round(response.data.length/10)
+            if(response.data.length <= 0)
+              this.length_pagination = 0
             }).catch(e => {
                 console.log('error',e)
             });
-        axios.get('/tag/getPost/').then(res => {
-            console.log(res.data)
-            this.tag_data = res.data
-          }).catch(err => {
-            console.log(err)
-          })
-    },
-    methods:{
+        },
+        getDataPost(){
+          axios.get('/tag/getPost/').then(res => {
+              this.tag_data = res.data
+            }).catch(err => {
+              console.log(err)
+            })
+        },
         handlePagination(page){
           this.pagination_start = page*10
           this.pagination_end = page <=0 ? 9 : (page+1)*9  // array loop start from 0 , so show 10 record -> *9
@@ -79,9 +86,22 @@ export default {
           axios.get('/tag/getPostTag/'+tagId).then(res => {
             this.length_pagination = Math.round(res.data.length/10) <= 0 ? 1 : Math.round(res.data.length/10)
             this.post_data = res.data
+            if(res.data.length <= 0)
+              this.length_pagination = 0
           }).catch(err => {
             console.log(err)
           })
+        }
+    },
+    computed:{
+      checkReload(){
+          return this.$store.state.reloadHomePageIndex
+      }
+    },
+    watch:{
+        checkReload(newData,oldData){
+            this.getDataPostGroup();
+            this.getDataPost();
         }
     }
 }
@@ -171,10 +191,9 @@ export default {
   max-width:90%;
 	transition:.2s;
 }
-  
-  .article-preview:hover{
-  transform:scale(1.02);
 }
+.article-preview:hover{
+  transform:scale(1.02);
 }
 
 @media (max-width: 768px){
