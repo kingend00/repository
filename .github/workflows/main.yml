@@ -12,8 +12,25 @@ jobs:
                 FIRST_NAME: HoangX
                 middle_name: Raiser
                 Last_Name: Hydraw
-              uses: |
-                    actions/checkout@v2
-                    actions/setup-node@v1
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
               with:
                 node-version: 8
+            - run: echo "run and test npm"
+            - run: |
+                   npm install
+                   npm ci
+                   npm test
+
+            - name: Composer dependencies
+              run: | 
+                composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+                composer update
+            - name: Prepare Laravel Application
+              run : |
+                cp .env.example .env
+                php artisan key:generate
+                php artisan config:clear
+
+            - name: Run Testing Project
+              run: vendor/bin/phpunit tests/
