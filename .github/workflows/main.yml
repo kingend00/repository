@@ -6,14 +6,6 @@ jobs:
     workflows:
         runs-on: ubuntu-18.04
         steps:
-            - name: Cache folder
-              uses: actions/cache@v1
-            - run: echo "Folder caching..."              
-              with:
-                path: | 
-                  vendor/
-                  node_modules/
-
             - name: Hello world
               run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
               env:
@@ -22,6 +14,11 @@ jobs:
                 Last_Name: Hydraw
               uses: actions/checkout@v2
               uses: actions/setup-node@v1
+              uses: actions/cache@v1
+              with:
+                path: | 
+                  vendor/
+                  node_modules/
               with:
                 node-version: 8
             - run: echo "run and test npm"
