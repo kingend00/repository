@@ -7,20 +7,20 @@ jobs:
         runs-on: ubuntu-18.04
         steps:
             - name: Cache folder
-            - uses: actions/cache@v1
+              uses: actions/cache@v1
               with:
                 path: | 
                   vendor/
                   node_modules/
-                  
+
             - name: Hello world
               run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
               env:
                 FIRST_NAME: HoangX
                 middle_name: Raiser
                 Last_Name: Hydraw
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v1
+              uses: actions/checkout@v2
+              uses: actions/setup-node@v1
               with:
                 node-version: 8
             - run: echo "run and test npm"
