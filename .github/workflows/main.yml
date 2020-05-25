@@ -15,7 +15,7 @@ jobs:
                   node_modules/
 
             - name: Hello world
-                id: test
+              id: test
               run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
               env:
                 FIRST_NAME: HoangX
