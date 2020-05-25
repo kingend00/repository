@@ -14,13 +14,13 @@ jobs:
                 Last_Name: Hydraw
               uses: actions/checkout@v2
               uses: actions/setup-node@v1
+              with:
+                node-version: 8
               uses: actions/cache@v1
               with:
                 path: | 
                   vendor/
                   node_modules/
-              with:
-                node-version: 8
             - run: echo "run and test npm"
             - run: |
                    npm install
