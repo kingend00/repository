@@ -16,11 +16,11 @@ jobs:
               uses: actions/setup-node@v1
               with:
                 node-version: 8
-              uses: actions/cache@v1
-              with:
-                path: | 
-                  vendor/
-                  node_modules/
+              # uses: actions/cache@v1
+              # with:
+              #   path: | 
+              #     vendor/
+              #     node_modules/
             - run: echo "run and test npm"
             - run: |
                    npm install
