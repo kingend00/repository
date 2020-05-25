@@ -13,7 +13,7 @@ jobs:
                 path: | 
                   vendor/
                   node_modules/
-                key: cache-${{ hashFiles('../../package-lock.json') }}
+                key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
             - name: Hello world
               id: test
