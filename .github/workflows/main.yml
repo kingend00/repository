@@ -12,8 +12,9 @@ jobs:
                 FIRST_NAME: HoangX
                 middle_name: Raiser
                 Last_Name: Hydraw
-              uses: actions/checkout@v2
-              uses: actions/setup-node@v1
+              uses: |
+                    actions/checkout@v2
+                    actions/setup-node@v1
               with:
                 node-version: 8
               # uses: actions/cache@v1
