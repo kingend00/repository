@@ -6,6 +6,13 @@ jobs:
     workflows:
         runs-on: ubuntu-18.04
         steps:
+            - name: Cache folder
+            - uses: actions/cache@v1
+              with:
+                path: | 
+                  vendor/
+                  node_modules/
+                  
             - name: Hello world
               run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
               env:
