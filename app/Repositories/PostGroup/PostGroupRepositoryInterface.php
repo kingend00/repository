@@ -2,6 +2,7 @@
 
 namespace App\Repositories\PostGroup;
 
-interface PostGroupRepositoryInterface {
+interface PostGroupRepositoryInterface
+{
     public function getPost($id_postGroup);
 }

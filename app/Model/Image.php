@@ -9,7 +9,8 @@ class Image extends Model
     //
     protected $table = 'images';
 
-    public function posts(){
+    public function posts()
+    {
         return $this->belongsTo('App\Model\Post');
     }
 }

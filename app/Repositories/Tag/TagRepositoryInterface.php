@@ -2,7 +2,8 @@
 
 namespace App\Repositories\Tag;
 
-interface TagRepositoryInterface {
+interface TagRepositoryInterface
+{
     public function getPost();
     public function getPostTag($tagId);
 }

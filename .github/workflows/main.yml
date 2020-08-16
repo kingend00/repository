@@ -42,7 +42,10 @@ jobs:
               run : |
                 cp .env.example .env
                 php artisan key:generate
+                php artisan route:clear
                 php artisan config:clear
 
-            - name: Run Testing Project
-              run: vendor/bin/phpunit tests/
+            - name: Run testing
+              run: |
+                vendor/bin/phpunit tests/
+                vendor/bin/phpcbf --standard=psr2 app/

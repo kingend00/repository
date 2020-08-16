@@ -18,9 +18,9 @@ interface RepositoryInterface
     public function find($id);
     public function delete($id);
     public function store(Request $request);
-    public function storeArray($array=[]);
+    public function storeArray($array = []);
     public function create();
     public function show();
     public function update(Model $model, $attribute = []);
-    public function whereEqualCondition($condition1,$condition2);
+    public function whereEqualCondition($condition1, $condition2);
 }

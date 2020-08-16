@@ -10,7 +10,8 @@ class PostGroup extends Model
 
     protected $fillable = ['title'];
 
-    public function posts(){
-        return $this->morphMany('App\Model\Post','postable');
+    public function posts()
+    {
+        return $this->morphMany('App\Model\Post', 'postable');
     }
 }

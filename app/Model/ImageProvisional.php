@@ -9,7 +9,8 @@ class ImageProvisional extends Model
     //
     protected $table="image_provisional";
 
-    public function posts(){
+    public function posts()
+    {
         return $this->belongsTo('App\Model\Post');
     }
 }

@@ -65,12 +65,13 @@ class PostController extends Controller
         ]);
         $postGroup = PostGroup::findOrFail($request->get('post_group'));
         $postGroup->posts()->save($dataPost);
-        foreach($request->get('tag') as $item){
-            $checkTagExists = Tag::where('tag',$item)->first();
-            if(!$checkTagExists)
+        foreach ($request->get('tag') as $item) {
+            $checkTagExists = Tag::where('tag', $item)->first();
+            if (!$checkTagExists) {
                 $checkTagExists = $this->tagRepository->storeArray(['tag' => $item]);
+            }
 
-            $checkTagExists->posts()->save($dataPost);            
+            $checkTagExists->posts()->save($dataPost);
         }
         return "success";
     }

@@ -24,14 +24,17 @@ class UserController extends Controller
     {
         return $this->userRepository->all();
     }
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         return $this->userRepository->login($request);
     }
-    public function refresh() {
+    public function refresh()
+    {
         return $this->userRepository->refresh();
     }
 
-    public function user() {
+    public function user()
+    {
         return $this->userRepository->user();
     }
     /**

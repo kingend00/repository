@@ -17,10 +17,12 @@ class Post extends Model
     {
         return $this->morphToMany('App\Model\Tag', 'taggable');
     }
-    public function postable(){
+    public function postable()
+    {
         return $this->morphTo();
     }
-    public function image(){
-        return $this->hasMany('App\Model\Image','post_id');
+    public function image()
+    {
+        return $this->hasMany('App\Model\Image', 'post_id');
     }
 }

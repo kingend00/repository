@@ -4,7 +4,8 @@ namespace App\Repositories\User;
 
 use Illuminate\Http\Request;
 
-interface UserRepositoryInterface {
+interface UserRepositoryInterface
+{
     
     public function login(Request $request);
 }
