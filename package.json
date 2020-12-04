@@ -31,7 +31,7 @@
         "dotenv": "^8.2.0",
         "editor.md": "^1.5.0",
         "github-markdown-css": "^4.0.0",
-        "highlight.js": "^9.18.1",
+        "highlight.js": "^10.4.1",
         "inscrybmde": "^1.11.6",
         "markdown-it": "^10.0.0",
         "markdown-it-vue": "^1.0.11",
