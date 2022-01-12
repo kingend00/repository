@@ -33,7 +33,7 @@
         "github-markdown-css": "^4.0.0",
         "highlight.js": "^9.18.1",
         "inscrybmde": "^1.11.6",
-        "markdown-it": "^10.0.0",
+        "markdown-it": "^12.3.2",
         "markdown-it-vue": "^1.0.11",
         "simplemde": "^1.11.2",
         "simplemde-theme-base": "^0.2.1",
